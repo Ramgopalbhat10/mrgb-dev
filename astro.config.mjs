@@ -10,6 +10,9 @@ import astroRemark from "@astrojs/markdown-remark";
 // @ts-check
 export default /** @type {import('astro').AstroUserConfig} */ ({
   // Enable Custom Markdown options, plugins, etc.
+  buildOptions: {
+    site: "https://mrgb.dev",
+  },
   renderers: [],
   markdownOptions: {
     render: [
