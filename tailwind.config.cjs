@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "retro-dark": "url('./public/assets/bg.jpg')",
+      },
       keyframes: {
         "slide-in-left": {
           "0%": {

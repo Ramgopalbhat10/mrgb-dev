@@ -13,7 +13,6 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
   buildOptions: {
     site: "https://mrgb.dev",
   },
-  renderers: [],
   markdownOptions: {
     render: [
       astroRemark,
