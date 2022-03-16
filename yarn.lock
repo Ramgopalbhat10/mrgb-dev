@@ -103,6 +103,16 @@
     svelte "^3.46.4"
     svelte-preprocess "^4.9.8"
 
+"@astrojs/renderer-svelte@^0.5.2":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@astrojs/renderer-svelte/-/renderer-svelte-0.5.2.tgz#24c785ff46684a483ad4665a099961c2fed13c3b"
+  integrity sha512-ydQOwUJn5mlXVH1TrRw61vhBqxVPXVR9n9NLhnyETpqjOViZcZSmx6YaBwcKBsD5t0Sq89l5NwnNT1cL6h3C/w==
+  dependencies:
+    "@sveltejs/vite-plugin-svelte" "^1.0.0-next.39"
+    svelte "^3.46.4"
+    svelte-preprocess "^4.10.4"
+    vite "^2.8.6"
+
 "@astrojs/renderer-vue@0.4.0":
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/@astrojs/renderer-vue/-/renderer-vue-0.4.0.tgz#65ed0e60fdc74792de5ed773f0a8200039e409c7"
@@ -3756,7 +3766,7 @@ svelte-hmr@^0.14.9:
   resolved "https://registry.yarnpkg.com/svelte-hmr/-/svelte-hmr-0.14.11.tgz#63d532dc9c2c849ab708592f034765fa2502e568"
   integrity sha512-R9CVfX6DXxW1Kn45Jtmx+yUe+sPhrbYSUp7TkzbW0jI5fVPn6lsNG9NEs5dFg5qRhFNAoVdRw5qQDLALNKhwbQ==
 
-svelte-preprocess@^4.9.8:
+svelte-preprocess@^4.10.4, svelte-preprocess@^4.9.8:
   version "4.10.4"
   resolved "https://registry.yarnpkg.com/svelte-preprocess/-/svelte-preprocess-4.10.4.tgz#308a410266bfc55b4e608da8d552b63580141260"
   integrity sha512-fuwol0N4UoHsNQolLFbMqWivqcJ9N0vfWO9IuPAiX/5okfoGXURyJ6nECbuEIv0nU3M8Xe2I1ONNje2buk7l6A==

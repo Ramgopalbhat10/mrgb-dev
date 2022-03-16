@@ -1,5 +1,6 @@
 ---
 import { Footer, Head, Header } from "../components";
+import ScrollToTop from "../components/utils/ScrollToTop.svelte";
 
 export interface Props {
   title: string;
@@ -44,6 +45,7 @@ const title = `${pageTitle} | ${siteName}`;
         <slot />
       </main>
       <Footer />
+      <ScrollToTop client:load />
     </div>
   </body>
 </html>

@@ -1,5 +1,6 @@
 ---
 import { Footer, Head, Header } from "../components";
+import ScrollToTop from "../components/utils/ScrollToTop.svelte";
 
 export interface Props {
   title: string;
@@ -33,6 +34,7 @@ const title = `${pageTitle} | ${siteName}`;
       {socialImage}
       {socialImageAlt}
     />
+    <!-- <link rel="stylesheet" href="/styles/dracula.css" /> -->
   </head>
 
   <body
@@ -51,5 +53,6 @@ const title = `${pageTitle} | ${siteName}`;
       </main>
       <Footer />
     </div>
+    <ScrollToTop client:load />
   </body>
 </html>

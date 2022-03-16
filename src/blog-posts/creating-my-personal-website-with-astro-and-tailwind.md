@@ -4,7 +4,7 @@ description: "How I went about creating my personal website using Astro and Tail
 date: "January 25, 2022"
 # heroImage: "/assets/blog/creating-my-personal-website-with-astro-tailwindcss-and-nx/hero.png"
 heroImageAlt: "Astro and Tailwind CSS logos"
-# thumbnailImage: "/assets/blog/creating-my-personal-website-with-astro-tailwindcss-and-nx/thumbnail.png"
+thumbnailImage: "/assets/blog/basic-go-http-server/thumbnail.png"
 thumbnailImageAlt: "Astro and Tailwind CSS logos"
 ---
 

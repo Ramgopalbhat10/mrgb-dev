@@ -4,7 +4,7 @@ description: "How to create a simple HTTP web server in Go."
 date: "February 25, 2022"
 # heroImage: "/assets/blog/creating-my-personal-website-with-astro-tailwindcss-and-nx/hero.png"
 heroImageAlt: "Golang logos"
-# thumbnailImage: "/assets/blog/creating-my-personal-website-with-astro-tailwindcss-and-nx/thumbnail.png"
+thumbnailImage: "/assets/blog/basic-go-http-server/thumbnail.png"
 thumbnailImageAlt: "Golang logos"
 ---
 
