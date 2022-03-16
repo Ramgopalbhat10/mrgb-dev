@@ -1,0 +1,17 @@
+---
+import Layout from "../../layouts/BaseLayout.astro";
+import { Blog } from "../../components";
+
+const title = "Blog";
+const description =
+  "My blog with articles about web development and programming in general.";
+
+let posts = await Astro.fetchContent("../../blog-posts/*.md");
+posts = posts.sort(
+  (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
+);
+---
+
+<Layout {title} {description} socialImageAlt="MRGB's blog social image">
+  <Blog {description} {posts} />
+</Layout>

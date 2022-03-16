@@ -1,0 +1,33 @@
+---
+export interface Props {
+  post: {
+    date: string;
+    description: string;
+    thumbnailImage?: string;
+    thumbnailImageAlt?: string;
+    link: string;
+    title: string;
+  };
+}
+
+const { title, description, date, link, thumbnailImage, thumbnailImageAlt } =
+  Astro.props.post;
+---
+
+<a
+  class="flex flex-col max-w-xs shadow-md shadow-purple-700/50 ring-1 ring-purple-400 hover:shadow-lg hover:shadow-purple-700/50 transition-all animate-zoom-in"
+  href={link}
+>
+  <!-- <img
+    class="w-full h-36 object-cover"
+    height="144"
+    width="100%"
+    src={thumbnailImage}
+    alt={thumbnailImageAlt}
+  /> -->
+  <div class="p-4 md:p-8 flex flex-col flex-1 bg-opacity-40 bg-black">
+    <h2 class="mb-4 text-xl text-purple-400 font-bold" set:html={title}></h2>
+    <p class="mb-8 flex-1" set:html={description}></p>
+    <span class="self-end text-sm opacity-80">{date}</span>
+  </div>
+</a>
