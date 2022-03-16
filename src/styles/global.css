@@ -52,7 +52,30 @@ pre {
   white-space: pre-wrap;
 }
 
-body {
-  max-width: 900px;
-  margin: auto;
+/* tailwind overrides */
+.gray-dark {
+  background: #19181b;
+}
+.gray-medium {
+  background: #27252a;
+}
+.text-purple {
+  color: #b88fff;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #b88fff transparent;
+}
+
+::-webkit-scrollbar {
+  @apply h-[6px] w-[6px] bg-transparent;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-purple-400;
 }

@@ -1,22 +1,43 @@
 ---
-import "../styles/global.css";
+import { Footer, Head, Header } from "../components";
 
 export interface Props {
   title: string;
   description: string;
+  socialImage?: string;
+  socialImageAlt: string;
 }
 
-const { title, description } = Astro.props;
-console.log(title, description);
+const {
+  title: pageTitle,
+  description,
+  socialImage,
+  socialImageAlt,
+} = Astro.props;
+const { canonicalURL } = Astro.request;
+const siteName = canonicalURL.hostname;
+const title = `${pageTitle} | ${siteName}`;
 ---
 
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
-    <meta charSet="utf-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <title>{title}</title>
+    <Head
+      {title}
+      {description}
+      {canonicalURL}
+      {siteName}
+      {socialImage}
+      {socialImageAlt}
+    />
   </head>
-  <body>
-    <slot />
+
+  <body
+    class="min-h-screen w-screen bg-white flex flex-col text-white selection:bg-purple-700 selection:text-white overflow-x-hidden"
+  >
+    <Header currentPage={Astro.request.url.pathname} />
+    <main class="flex flex-1">
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>
