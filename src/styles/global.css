@@ -55,6 +55,9 @@ pre {
 }
 
 /* tailwind overrides */
+.bg-retro-img {
+  background-image: url("https://res.cloudinary.com/da91xzc7s/image/upload/q_auto:eco/v1647439434/bg_t8d8j1.webp") !important;
+}
 .gray-dark {
   background: #19181b;
 }
