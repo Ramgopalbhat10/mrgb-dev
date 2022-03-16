@@ -5,7 +5,8 @@ export interface Props {
   title: string;
   description: string;
   socialImage?: string;
-  socialImageAlt: string;
+  socialImageAlt?: string;
+  canonicalUrl?: string;
 }
 
 const {
@@ -13,9 +14,12 @@ const {
   description,
   socialImage,
   socialImageAlt,
+  canonicalUrl,
 } = Astro.props;
-const { canonicalURL } = Astro.request;
-const siteName = canonicalURL.hostname;
+const canonicalURL = canonicalUrl
+  ? new URL(canonicalUrl)
+  : Astro.request.canonicalURL;
+const siteName = Astro.request.canonicalURL.hostname;
 const title = `${pageTitle} | ${siteName}`;
 ---
 
@@ -38,7 +42,9 @@ const title = `${pageTitle} | ${siteName}`;
       class="fixed min-h-screen w-screen bg-[url('../../public/assets/bg.jpg')] bg-cover bg-center -z-10"
     >
     </div>
-    <div class="flex flex-col flex-1 justify-between backdrop-blur-[6px]">
+    <div
+      class="flex flex-col flex-1 justify-between backdrop-blur-[16px] bg-opacity-60 bg-black"
+    >
       <Header currentPage={Astro.request.url.pathname} />
       <main class="flex flex-1">
         <slot />

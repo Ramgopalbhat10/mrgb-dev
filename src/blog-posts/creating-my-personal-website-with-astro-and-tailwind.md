@@ -473,10 +473,6 @@ One of the benefits of using Nx is that you can easily visualize your workspace 
 npx nx dep-graph
 ```
 
-I got the following visualization of my website's projects:
-
-![Website workspace structure](/assets/blog/creating-my-personal-website-with-astro-tailwindcss-and-nx/workspace-structure.png)
-
 ## Deploying to Cloudflare
 
 Setting up automatic deployments to Cloudflare Pages from the GitHub repository was really easy. To do so, I did the following steps:
@@ -485,17 +481,14 @@ Setting up automatic deployments to Cloudflare Pages from the GitHub repository 
 - Clicked on the `Create a project` button
 - Added my GitHub account, selected the repository to deploy, and clicked on the `Begin setup` button:
 
-![Screenshot with Github account and repository selected](/assets/blog/creating-my-personal-website-with-astro-tailwindcss-and-nx/cloudflare-create-page.png)
-
 - Updated the build settings with:
+
   - Project name: `leosvel-dev`
   - Production branch: `main`
   - Framework preset: `None`
   - Build command: `nx build website`
   - Build output directory: `dist/apps/website`
   - Added the `NODE_VERSION` environment variable and set it to `16.13.2` so the build command runs with it
-
-![Screenshot with build settings](/assets/blog/creating-my-personal-website-with-astro-tailwindcss-and-nx/cloudflare-build-deployment-setup.png)
 
 - Clicked on the `Save and deploy` button
 
@@ -572,8 +565,6 @@ I made this change by renaming the existing `build` target in the `website` proj
 ## Performance
 
 With everything in place and the website up and running, it was time to get some performance insights. Running Lighthouse on the live website for mobile gave me the following results:
-
-![Lighthouse score of 100](/assets/blog/creating-my-personal-website-with-astro-tailwindcss-and-nx/lighthouse-score.png)
 
 Now, that's a good-looking report! Isn't it?
 

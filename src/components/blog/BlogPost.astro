@@ -1,0 +1,112 @@
+---
+import BlogPostAttribution from "./BlogPostAttribution.astro";
+
+export interface Props {
+  title: string;
+  date: string;
+  heroImage?: string;
+  heroImageAlt: string;
+  originalUrl: string | undefined;
+}
+
+const { title, date, heroImage, heroImageAlt, originalUrl } = Astro.props;
+---
+
+<article
+  class="max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto px-4 py-12 sm:px-8 md:px-12 text-sm sm:text-base text-purple-100 leading-8 sm:leading-8 transition-all"
+>
+  <section class="mb-16 text-center">
+    <!-- <img
+      class="mb-16 w-full h-60 sm:h-80 md:h-[420px] object-cover"
+      height="420"
+      width="auto"
+      src={heroImage}
+      alt={heroImageAlt}
+    /> -->
+    <p class="m-0">{date}</p>
+    <BlogPostAttribution {originalUrl} />
+    <h1
+      class="mt-4 text-2xl sm:text-4xl font-bold transition-all"
+      set:html={title}
+    >
+    </h1>
+  </section>
+
+  <main class="blog-content">
+    <slot />
+  </main>
+
+  <a
+    class="mt-8 inline-block underline-offset-2 text-purple-700 hover:underline"
+    href="/blog">&leftarrow; Return to all blog posts</a
+  >
+</article>
+
+<style lang="scss" global>
+  .blog-content {
+    > * + * {
+      @apply mt-4;
+    }
+
+    h2 {
+      @apply mt-12 text-xl font-bold sm:text-2xl;
+    }
+
+    h3 {
+      @apply mt-6 text-base font-bold sm:text-lg;
+    }
+
+    a {
+      @apply text-purple-400 underline underline-offset-2 hover:underline;
+    }
+
+    :not(pre) code {
+      @apply rounded-sm bg-gray-100 px-1 italic;
+    }
+
+    blockquote {
+      @apply border-l-4 border-purple-400 bg-purple-500/40 px-4 py-2 italic rounded-md;
+    }
+
+    ul {
+      @apply ml-4 list-inside list-disc;
+    }
+
+    li > ul {
+      @apply list-circle ml-6;
+    }
+
+    li > ul > li > ul {
+      @apply list-square ml-6;
+    }
+
+    h2,
+    h3 {
+      @apply flex items-center;
+
+      &:hover a {
+        @apply opacity-100;
+      }
+
+      a {
+        @apply -ml-5 hidden pr-1 leading-4 opacity-0 transition-all hover:bg-transparent sm:block;
+      }
+    }
+
+    img {
+      @apply mx-auto my-6;
+    }
+
+    .heading-link img {
+      @apply m-0 h-4 w-4;
+    }
+
+    .external-link-icon {
+      @apply relative top-[2px] inline-flex;
+
+      img {
+        @apply m-0 ml-[2px] h-4 w-4;
+      }
+    }
+  }
+</style>

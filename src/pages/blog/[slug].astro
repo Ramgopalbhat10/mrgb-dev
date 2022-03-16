@@ -1,0 +1,61 @@
+---
+import Layout from "../../layouts/BlogPostLayout.astro";
+import { BlogPost } from "../../components";
+
+export async function getStaticPaths({ rss }) {
+  let posts = await Astro.fetchContent("../../blog-posts/*.md");
+  posts = posts
+    .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf())
+    .map((post) => ({
+      ...post,
+      slug: post.file.pathname.split("/").pop().split(".").shift(),
+    }));
+
+  rss({
+    title: `MRGB's blog`,
+    stylesheet: true,
+    description:
+      "My blog with articles about web development and programming in general.",
+    items: posts.map((post) => ({
+      title: post.title,
+      description: post.description,
+      link: `/blog/${post.slug}`,
+      pubDate: post.date,
+    })),
+  });
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const {
+  Content,
+  title,
+  description,
+  date,
+  heroImage,
+  heroImageAlt,
+  thumbnailImage,
+  thumbnailImageAlt,
+  canonicalUrl,
+} = Astro.props.post;
+
+const originalUrl = !canonicalUrl?.startsWith(Astro.site.href)
+  ? canonicalUrl
+  : undefined;
+---
+
+<Layout
+  {title}
+  {description}
+  socialImage={thumbnailImage}
+  socialImageAlt={thumbnailImageAlt}
+  {canonicalUrl}
+  {originalUrl}
+>
+  <BlogPost {title} {date} {heroImage} {heroImageAlt} {originalUrl}>
+    <Content />
+  </BlogPost>
+</Layout>
