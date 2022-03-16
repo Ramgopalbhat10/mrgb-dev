@@ -11,7 +11,7 @@ import astroRemark from "@astrojs/markdown-remark";
 export default /** @type {import('astro').AstroUserConfig} */ ({
   // Enable Custom Markdown options, plugins, etc.
   buildOptions: {
-    site: "https://mrgb.dev",
+    site: "https://mrgb.in",
   },
   markdownOptions: {
     render: [
