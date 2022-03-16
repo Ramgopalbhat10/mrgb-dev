@@ -56,6 +56,6 @@ const originalUrl = !canonicalUrl?.startsWith(Astro.site.href)
   {originalUrl}
 >
   <BlogPost {title} {date} {heroImage} {heroImageAlt} {originalUrl}>
-    <Content />
+    <Content class="animate-slide-in-left" />
   </BlogPost>
 </Layout>

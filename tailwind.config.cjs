@@ -20,6 +20,16 @@ module.exports = {
             opacity: 1,
           },
         },
+        "slide-in-bottom": {
+          "0%": {
+            transform: "translateY(100px)",
+            opacity: 0.5,
+          },
+          "100%": {
+            transform: "translateY(0)",
+            opacity: 1,
+          },
+        },
         "zoom-in": {
           "0%": {
             opacity: 0.5,
@@ -33,6 +43,7 @@ module.exports = {
       },
       animation: {
         "slide-in-left": "slide-in-left 300ms ease-in-out",
+        "slide-in-bottom": "slide-in-bottom 300ms ease-in-out",
         "zoom-in": "zoom-in 192ms ease-in-out",
         "zoom-in-slow": "zoom-in 300ms ease-in-out",
       },
