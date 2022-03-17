@@ -7,12 +7,6 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
     render: [
       "@astrojs/markdown-remark",
       {
-        syntaxHighlight: "shiki",
-        shikiConfig: {
-          theme: "dracula",
-        },
-      },
-      {
         rehypePlugins: [
           "rehype-slug",
           [
@@ -50,6 +44,10 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
             },
           ],
         ],
+        syntaxHighlight: "shiki",
+        shikiConfig: {
+          theme: "dracula",
+        },
       },
     ],
   },
