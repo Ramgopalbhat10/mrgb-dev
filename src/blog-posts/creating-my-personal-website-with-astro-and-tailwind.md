@@ -90,7 +90,7 @@ yarn add -D tailwindcss@latest postcss@latest autoprefixer@latest
 
 Then, I added the configuration for it in the project root:
 
-```js
+```js:tailwind.config.cjs
 // apps/website/tailwind.config.cjs
 module.exports = {
   content: [
@@ -101,7 +101,7 @@ module.exports = {
 };
 ```
 
-```js
+```js:postcss.config.cjs
 // apps/website/postcss.config.cjs
 module.exports = {
   plugins: [require("tailwindcss")],
@@ -110,7 +110,7 @@ module.exports = {
 
 Next, I proceeded to add the Tailwind CSS base styles to the existing `src/styles/global.css` file:
 
-```css
+```css:global.css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -126,7 +126,7 @@ Astro has a concept of [Layouts](https://docs.astro.build/core-concepts/layouts/
 
 I created a `src/layouts/BaseLayout.astro` file with the following content:
 
-```astro
+```astro:BaseLayout.astro
 ---
 import { Footer, Head, Header } from "../components";
 
@@ -186,7 +186,7 @@ As you can see in the code, I'm importing several components from `../components
 
 The following is the specific portion of code in the `src/components/common/Head.astro` file that includes the global styles:
 
-```astro
+```astro:Head.astro
 ...
 <!-- Global styles -->
 
@@ -203,7 +203,7 @@ Now that I had the base layout ready, it was time to use it to create some pages
 
 When it comes to pages, I like to keep them clean and simple and extract their presentation content into components. The following is the source code for the landing page located in `src/pages/index.astro`:
 
-```astro
+```astro:index.astro
 ---
 import Layout from "../layouts/BaseLayout.astro";
 import { Landing } from "../components";
@@ -227,7 +227,7 @@ The blog page displays a list of blog posts. These blog posts are written in Mar
 
 Let's have a look at the `src/pages/blog/index.astro` file to see how I did it:
 
-```astro
+```astro:blog/index.astro
 ---
 import Layout from "../../layouts/BaseLayout.astro";
 import { Blog } from "../../components";
@@ -262,7 +262,7 @@ You can see the `date` property that is used on the blog page to sort the blog p
 
 Let's also have a look at the source code portion of the `Blog` component where I use the received `posts` to display a list with a preview for each of them (the rest of the file is omitted for brevity):
 
-```astro
+```astro:blog/Blog.astro
 // src/components/blog/Blog.astro
 ...
 <section class="grid justify-center sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -296,7 +296,7 @@ This particular page is located in `src/pages/blog/[slug].astro` and will be ava
 
 We can see it in action in the source code of the page:
 
-```astro
+```astro:blog/[slug].astro
 ---
 import Layout from "../../layouts/BlogPostLayout.astro";
 import { BlogPost } from "../../components";
@@ -338,8 +338,7 @@ As we can see above, I'm also using the `Content` property that is returned from
 
 The `BlogPost` component renders and styles the blog post. Since I don't have direct access to the generated markup for the blog post, I'm using global styles scoped to the `.blog-content` CSS class to ensure they are only applied to the blog post content.
 
-```astro
-// src/components/blog/BlogPost.astro
+```astro:blog/BlogPost.astro
 ...
 <article class="max-w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto px-4 py-12 sm:px-8 md:px-12 text-sm sm:text-base text-cyan-900 leading-8 sm:leading-8 transition-all">
   ...

@@ -10,12 +10,11 @@ thumbnailImageAlt: "Golang logos"
 
 ## 3 essential things to create a basic HTTP server
 
-- 🕹️ **Handler** - MVC like controllers which execute app logic and for writing HTTP response headers and bodies
-- 🚩 **Router** - A servemux which stores the mapping of the URL patterns and their corresponding handlers. One servemux for entire app.
-- 🌐 **Web Server** - To listen for incoming requests. No need of external packages like NGINX or Apache. Go has its own package.
+- **Handler** - MVC like controllers which execute app logic and for writing HTTP response headers and bodies
+- **Router** - A servemux which stores the mapping of the URL patterns and their corresponding handlers. One servemux for entire app.
+- **Web Server** - To listen for incoming requests. No need of external packages like NGINX or Apache. Go has its own package.
 
-```go
-// main.go
+```go:main.go
 package main
 
 func home(w http.ResponseWriter, r *http.Request) {
@@ -36,6 +35,8 @@ func main() {
 - **`http.ListenAndServe()`** - starts a new web server which takes a TCP network address in this format **`":4000"`** and a servemux.
 
 > 💡 By default **`"/"`** path acts like catch-all regardless of their URL path.
+
+## Running the application
 
 To run the application we need any of the below command
 

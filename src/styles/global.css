@@ -70,6 +70,41 @@ pre {
 .astro-code {
   background-color: #1f1132 !important;
 }
+.toc {
+  padding: 15px 30px;
+  background: #1f11328a;
+  border-radius: 5px;
+  margin-top: 10px;
+  border: 1px solid #673ab7;
+}
+.remark-code-title + .astro-code {
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.remark-code-title,
+pre[class^="language-"] {
+  padding: 5px 15px;
+  margin: 0;
+  background-color: #442367 !important;
+}
+.remark-code-title {
+  border-radius: 4px 4px 0 0;
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+.blog-content :not(pre) code {
+  border: 1px solid #673ab7;
+  background-color: #c084fc26 !important;
+  color: #ffffffe6;
+}
+
+@media screen and (min-width: 640px) {
+  .remark-code-title {
+    font-size: 1rem;
+    padding: 0px 15px;
+  }
+}
 
 * {
   scrollbar-width: thin;

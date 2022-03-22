@@ -1,3 +1,5 @@
+import addClasses from "./add-classes.mjs";
+
 export default /** @type {import('astro').AstroUserConfig} */ ({
   renderers: ["@astrojs/renderer-svelte"],
   buildOptions: {
@@ -43,7 +45,10 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
               contentProperties: { className: ["external-link-icon"] },
             },
           ],
+          ["rehype-toc", { headings: ["h2", "h3"] }],
+          [addClasses, { "h1,h2,h3": "title" }],
         ],
+        remarkPlugins: ["remark-code-titles"],
         syntaxHighlight: "shiki",
         shikiConfig: {
           theme: "dracula",
